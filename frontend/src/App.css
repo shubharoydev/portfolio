@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  @media (max-width: 640px) {
+    .fixed-header {
+      padding-top: 60px; /* Adjust for fixed navbar height on mobile */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .fixed-header {
+      padding-top: 80px; /* Adjust for fixed navbar height on laptop */
+    }
+  }
+
+
+  .split-text {
+    opacity: 1;
+  }
+  
+  .split-text span {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+

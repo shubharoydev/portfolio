@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  @media (max-width: 640px) {
+    .fixed-header {
+      padding-top: 60px; /* Adjust for fixed navbar height on mobile */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .fixed-header {
+      padding-top: 80px; /* Adjust for fixed navbar height on laptop */
+    }
+  }
+
+
+
+  /* Fade-in animation for the title */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* Slide-up animation for cards and description */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+/* Ensure smooth hover transitions */
+.transition-transform {
+  transition-property: transform, box-shadow;
+}
+
+/* Glassmorphism effect */
+.backdrop-blur-md {
+  backdrop-filter: blur(10px);
+}
