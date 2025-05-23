@@ -1,9 +1,13 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-console.log('Loading Nodemailer with:');
-console.log('EMAIL_USER:', process.env.EMAIL_USER);
-console.log('EMAIL_PASS:', process.env.EMAIL_PASS);
+
+// Validate environment variables
+if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+  console.error('ERROR: Missing required environment variables');
+  console.error('Ensure EMAIL_USER and EMAIL_PASS are set in .env file');
+  process.exit(1);
+}
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -11,15 +15,13 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  pool: true, // Enable connection pooling for better performance
+  maxConnections: 5,
+  connectionTimeout: 30000, // 30 seconds timeout
+  logger: true, // Enable Nodemailer debug logging
+  debug: true, // Include detailed debug info
 });
 
-// Verify transporter immediately
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Transporter verification failed:', error);
-  } else {
-    console.log('Transporter is ready to send emails');
-  }
-});
+
 
 module.exports = transporter;

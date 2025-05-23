@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -9,16 +9,57 @@ const Footer = ({ id }) => {
   const sendEmail = async (e) => {
     e.preventDefault();
 
+    // Log the backend URL to confirm it's set
+    console.log('Environment Variables:', import.meta.env);
+    console.log('Backend URL:', import.meta.env.VITE_BACKEND_URL);
+
+    if (!import.meta.env.VITE_BACKEND_URL) {
+      console.error('VITE_BACKEND_URL is not defined. Please check your .env file.');
+      toast.error('Backend URL not configured. Please contact the administrator.', {
+        duration: 3000,
+        position: 'top-center',
+      });
+      return;
+    }
+
     const loadingToast = toast.loading('Sending message...');
+
+    // Extract form data
     const formData = new FormData(form.current);
     const data = {
-      user_name: formData.get('user_name'),
-      user_email: formData.get('user_email'),
-      message: formData.get('message'),
+      user_name: formData.get('user_name')?.trim(),
+      user_email: formData.get('user_email')?.trim(),
+      message: formData.get('message')?.trim(),
     };
+    console.log('Form Data:', Object.fromEntries(formData));
+    console.log('Request Payload:', data);
+
+    // Validate form data
+    if (!data.user_name || !data.user_email || !data.message) {
+      console.error('Validation failed: Missing required fields');
+      toast.dismiss(loadingToast);
+      toast.error('Please fill in all required fields.', {
+        duration: 3000,
+        position: 'top-center',
+      });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.user_email)) {
+      console.error('Validation failed: Invalid email format');
+      toast.dismiss(loadingToast);
+      toast.error('Please enter a valid email address.', {
+        duration: 3000,
+        position: 'top-center',
+      });
+      return;
+    }
 
     try {
-      const response = await fetch('http://localhost:5000/api/email/send', {
+      console.log('Sending request to:', `${import.meta.env.VITE_BACKEND_URL}/api/email/send`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/email/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +67,13 @@ const Footer = ({ id }) => {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error('Failed to send email');
+      const responseBody = await response.json();
+      console.log('Response Status:', response.status);
+      console.log('Response Body:', responseBody);
+
+      if (!response.ok) {
+        throw new Error(responseBody.error || 'Failed to send email');
+      }
 
       toast.dismiss(loadingToast);
       toast.success('Message sent successfully!', {
@@ -37,9 +84,10 @@ const Footer = ({ id }) => {
       form.current.reset();
       setTimeout(() => setSent(false), 3000);
     } catch (error) {
-      console.error('Email error:', error);
+      console.error('Email error:', error.message);
+      console.error('Error details:', error);
       toast.dismiss(loadingToast);
-      toast.error('Failed to send message. Please try again.', {
+      toast.error(`Failed to send message: ${error.message}`, {
         duration: 3000,
         position: 'top-center',
       });
@@ -68,7 +116,7 @@ const Footer = ({ id }) => {
           <div className="space-y-4 sm:space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Get in Touch</h2>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-md">
-              I’d love to hear from you! Connect with me on social media or drop a message below.
+              I’d love to hear from you Mintellectually hear from you! Connect with me on social media or drop a message below.
             </p>
             <div className="flex gap-4 sm:gap-6 text-xl sm:text-2xl">
               {[
@@ -147,6 +195,7 @@ const Footer = ({ id }) => {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         strokeLinecap="round"
