@@ -1,24 +1,25 @@
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
+import Spline from '@splinetool/react-spline'; // Import Spline
 import Aurora from '../bg-style/Aurora';
 
 const Hero = () => {
   useEffect(() => {
-    const text = document.querySelector('.split-text');
-    if (text) {
-      const chars = text.textContent.split('');
-      text.innerHTML = chars
-        .map(
-          (char, i) =>
-            `<span style="display: inline-block; animation-delay: ${
-              i * 0.05
-            }s;">${char === ' ' ? ' ' : char}</span>`
-        )
-        .join('');
-    }
+    const textElements = document.querySelectorAll('.split-text');
+    textElements.forEach((text) => {
+      if (text) {
+        const chars = text.textContent.split('');
+        text.innerHTML = chars
+          .map(
+            (char, i) =>
+              `<span style="display: inline-block; animation: fadeInUp 0.5s ease-out ${i * 0.05}s forwards; opacity: 0;">${char === ' ' ? ' ' : char}</span>`
+          )
+          .join('');
+      }
+    });
   }, []);
 
   return (
-    <div className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-12 md:pb-16 lg:pb-24 xl:pb-36 2xl:pb-48 bg-black">
+    <div className="relative min-h-screen bg-black overflow-hidden">
       <div className="absolute inset-0">
         <Aurora
           colorStops={['#3A29FF', '#FF94B4', '#FF3232']}
@@ -28,59 +29,62 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-between">
-            {/* Left side: Text and Buttons */}
-            <div className="w-full lg:w-1/2">
-              <p className="mt-4 sm:mt-6 tracking-tighter text-white">
-                <span className="split-text font-sans font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                  The journey of a
-                </span>
-                <br />
-                <span className="split-text font-serif italic font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-                  Passionate developer
-                </span>
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side: Text and Buttons */}
+          <div className="space-y-8">
+            <div>
+              <p className="split-text font-serif font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight">
+                Beyond coding —
               </p>
-
-              <h1 className="font-sans text-sm sm:text-base md:text-lg font-normal tracking-tight text-white text-opacity-70 py-9.5">
-                Exploring the world of web development
-              </h1>
-
-              <div className="flex flex-col sm:flex-row items-center mt-6 sm:mt-8 space-y-4 sm:space-y-0 sm:space-x-4">
-                <a
-                  href="#aboutme"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-3 font-sans text-sm sm:text-base font-semibold transition-all duration-200 border-2 border-transparent rounded-full bg-white text-black hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-black"
-                >
-                  Get started
-                </a>
-                <a
-                  href="https://doctor-appointment-booking-bice.vercel.app"
-                  className="inline-flex items-center justify-center w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-3 font-sans text-sm sm:text-base font-semibold transition-all duration-200 bg-transparent border-2 rounded-full text-white border-white hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-black"
-                >
-                  <svg
-                    className="w-4 sm:w-6 h-4 sm:h-6 mr-1 sm:mr-2"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M8.0416 4.9192C7.37507 4.51928 6.5271 4.99939 6.5271 5.77669L6.5271 18.2232C6.5271 19.0005 7.37507 19.4806 8.0416 19.0807L18.4137 12.8574C19.061 12.469 19.061 11.5308 18.4137 11.1424L8.0416 4.9192Z"
-                    />
-                  </svg>
-                  Visit my latest project
-                </a>
-              </div>
+              <p className="split-text font-serif italic font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-tight">
+                a builder of   possibilities
+              </p>
             </div>
 
-               
+            <h1 className="font-sans text-base sm:text-lg md:text-xl font-light text-white/70 tracking-tight max-w-lg">
+              Crafting innovative web solutions with creativity and precision
+            </h1>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#aboutme"
+                className="inline-flex items-center justify-center px-6 py-3 font-sans text-base font-semibold text-black bg-white rounded-full hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+              >
+                Get Started
+              </a>
+              <a
+                href="https://medilynk.vercel.app/"
+                className="inline-flex items-center justify-center px-6 py-3 font-sans text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M8.0416 4.9192C7.37507 4.51928 6.5271 4.99939 6.5271 5.77669L6.5271 18.2232C6.5271 19.0005 7.37507 19.4806 8.0416 19.0807L18.4137 12.8574C19.061 12.469 19.061 11.5308 18.4137 11.1424L8.0416 4.9192Z"
+                  />
+                </svg>
+                Visit My Latest Project
+              </a>
+            </div>
+          </div>
+
+          {/* Right side: Spline Component */}
+          <div className="hidden lg:block">
+            <div className="relative w-full h-96  rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Spline scene="https://prod.spline.design/RMQizXKsYPcL-fch/scene.splinecode" />
               </div>
             </div>
           </div>
         </div>
-   
+      </div>
+    </div>
   );
 };
 
