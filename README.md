@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio repository! This project showcases my work, skills, and experience through a professionally designed frontend and a powerful backend integration.
 
-🔗 **Live Demo**: [https://shubharoydev.onrender.com](https://shubharoydev.onrender.com)
+🔗 **Live Demo**: [https://shubharoydev.vercel.app/](https://shubharoydev.vercel.app/)
 
 ---
 

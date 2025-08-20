@@ -15,11 +15,14 @@ import {
   FaGithub,
   FaDocker,
   FaDatabase,
-  FaNodeJs
+  FaNodeJs,
+  FaLaptopCode,
 } from 'react-icons/fa';
-import { SiNextdotjs, SiExpress, SiTailwindcss, SiMongodb, SiRedis, SiPostman, SiVite } from 'react-icons/si';
+import { SiGraphql ,SiApachekafka, SiExpress, SiTailwindcss, SiMongodb, SiRedis, SiPostman, SiVite, SiPostgresql, SiMysql, SiNextdotjs } from 'react-icons/si';
 import Particles from '../bg-style/Particles';
 import { motion } from 'framer-motion';
+import matlabIcon from "../assets/matlab-icon.png";
+
 
 const AboutMe = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -63,7 +66,7 @@ const AboutMe = () => {
                 alt="Shubha Roy, Fullstack Developer"
                 className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 viaup-hover:opacity-100 transition-opacity duration-500"></div>-transparent to-transparent opacity-80 gro
               <div className="absolute bottom-6 left-6 text-white">
                 <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">Shubha Roy</p>
                 <p className="text-sm font-light text-gray-300">Fullstack Developer</p>
@@ -73,14 +76,14 @@ const AboutMe = () => {
 
           {/* Description Section */}
           <div className="flex flex-col justify-center">
-            <div className="relative bg-gray-800/50 p-8 rounded-xl shadow-lg backdrop-blur-sm border border-white/10 overflow-hidden">
+            <div className="relative  p-8 rounded-xl shadow-lg backdrop-blur-sm border border-white/10 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-500/10 blur-3xl"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-pink-500/10 blur-3xl"></div>
               <p className="text-lg sm:text-xl text-gray-200 leading-relaxed relative z-10">
                 <FaRocket className="inline-block text-pink-500 mr-2 mb-1 animate-float" />
-                I'm Shubha Roy, a passionate developer with a love for creating innovative and user-friendly solutions. With a strong foundation in modern web technologies, I thrive on transforming ideas into reality through clean code and thoughtful design. My journey in tech has been driven by curiosity and a commitment to continuous learning, allowing me to tackle diverse projects with confidence and creativity.
-              </p>
-            </div>
+       ɪ'ᴍ ꜱʜᴜʙʜᴀ ʀᴏʏ, ᴀ ᴅᴇᴅɪᴄᴀᴛᴇᴅ ᴀɴᴅ ᴅᴇᴛᴀɪʟ-ᴏʀɪᴇɴᴛᴇᴅ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴡɪᴛʜ ᴀ ꜱᴛʀᴏɴɢ ᴘᴀꜱꜱɪᴏɴ ꜰᴏʀ ʙᴜɪʟᴅɪɴɢ ɪɴɴᴏᴠᴀᴛɪᴠᴇ ᴀɴᴅ ᴜꜱᴇʀ-ᴄᴇɴᴛʀɪᴄ ꜱᴏʟᴜᴛɪᴏɴꜱ. ᴡɪᴛʜ ᴀ ꜱᴏʟɪᴅ ꜰᴏᴜɴᴅᴀᴛɪᴏɴ ɪɴ ᴍᴏᴅᴇʀɴ ᴡᴇʙ ᴛᴇᴄʜɴᴏʟᴏɢɪᴇꜱ, ɪ ꜱᴘᴇᴄɪᴀʟɪᴢᴇ ɪɴ ᴛʀᴀɴꜱꜰᴏʀᴍɪɴɢ ɪᴅᴇᴀꜱ ɪɴᴛᴏ ʜɪɢʜ-Qᴜᴀʟɪᴛʏ, ᴍᴀɪɴᴛᴀɪɴᴀʙʟᴇ ᴄᴏᴅᴇ ᴀɴᴅ ɪɴᴛᴜɪᴛɪᴠᴇ ᴅᴇꜱɪɢɴꜱ. ᴍʏ ᴊᴏᴜʀɴᴇʏ ɪɴ ᴛᴇᴄʜɴᴏʟᴏɢʏ ɪꜱ ꜰᴜᴇʟᴇᴅ ʙʏ ᴀ ᴅᴇᴇᴘ ᴄᴜʀɪᴏꜱɪᴛʏ ᴀɴᴅ ᴀ ᴄᴏᴍᴍɪᴛᴍᴇɴᴛ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴏᴜꜱ ʟᴇᴀʀɴɪɴɢ, ᴇɴᴀʙʟɪɴɢ ᴍᴇ ᴛᴏ ᴀᴘᴘʀᴏᴀᴄʜ ᴅɪᴠᴇʀꜱᴇ ᴄʜᴀʟʟᴇɴɢᴇꜱ ᴡɪᴛʜ ᴄᴏɴꜰɪᴅᴇɴᴄᴇ, ᴄʀᴇᴀᴛɪᴠɪᴛʏ, ᴀɴᴅ ᴀ ʀᴇꜱᴜʟᴛꜱ-ᴅʀɪᴠᴇɴ ᴍɪɴᴅꜱᴇᴛ.
+            </p>
+            </div> 
           </div>
         </div>
 
@@ -107,28 +110,35 @@ const AboutMe = () => {
                 // { icon: <SiNextdotjs className="w-5 h-5 text-gray-200 mr-2" />, text: "Next.js" },
                 {icon: <FaNodeJs className="w-5 h-5 text-green-600 mr-2" />, text: "Node.js"},
                 { icon: <SiExpress className="w-5 h-5 text-gray-400 mr-2" />, text: "Express.js" },
+                  { icon: <SiVite className="w-5 h-5 text-purple-400 mr-2" />, text: "Vite" },
                 { icon: <SiTailwindcss className="w-5 h-5 text-teal-400 mr-2" />, text: "Tailwind CSS" },
               ],
               accent: "purple-300"
             },
+
             {
-              title: "Tools Used",
-              icon: <FaTools className="w-8 h-8 text-teal-300 mr-3" />,
-              items: [
-                { icon: <FaGitAlt className="w-5 h-5 text-orange-400 mr-2" />, text: "Git" },
-                { icon: <FaGithub className="w-5 h-5 text-gray-200 mr-2" />, text: "GitHub" },
-                { icon: <SiPostman className="w-5 h-5 text-orange-300 mr-2" />, text: "Postman" },
-                { icon: <FaDocker className="w-5 h-5 text-blue-400 mr-2" />, text: "Docker" },
-                { icon: <SiVite className="w-5 h-5 text-purple-400 mr-2" />, text: "Vite" },
-              ],
-              accent: "teal-300"
-            },
+  title: "Tools Used",
+  icon: <FaTools className="w-8 h-8 text-teal-300 mr-3" />,
+  items: [
+    { icon: <FaGitAlt className="w-5 h-5 text-orange-400 mr-2" />, text: "Git" },
+    { icon: <FaGithub className="w-5 h-5 text-gray-200 mr-2" />, text: "GitHub" },
+    { icon: <SiPostman className="w-5 h-5 text-orange-300 mr-2" />, text: "Postman" },
+    { icon: <FaDocker className="w-5 h-5 text-blue-400 mr-2" />, text: "Docker" },
+    { icon: <SiApachekafka className="w-5 h-5 text-red-400 mr-2" />, text: "Apache Kafka" },
+    { icon: <SiGraphql className="w-5 h-5 text-pink-500 mr-2" />, text: "GraphQL" },
+    { icon: <img src={matlabIcon} alt="MATLAB" className="w-5 h-5 mr-2" />, text: "MATLAB" },
+  ],
+  accent: "teal-300"
+},
+
             {
               title: "Databases Used",
               icon: <FaDatabase className="w-8 h-8 text-green-300 mr-3" />,
               items: [
                 { icon: <SiMongodb className="w-5 h-5 text-green-400 mr-2" />, text: "MongoDB" },
                 { icon: <SiRedis className="w-5 h-5 text-red-400 mr-2" />, text: "Redis" },
+                { icon: <SiPostgresql className="w-5 h-5 text-blue-500 mr-2" />, text: "Postgresql" },
+                {icon: <SiMysql className="w-5 h-5 text-blue-500 mr-2" />, text: "MySQL"},
               ],
               accent: "green-300"
             },
