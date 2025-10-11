@@ -38,7 +38,7 @@ const Hero = () => {
                 Beyond coding —
               </p>
               <p className="split-text font-serif italic font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-tight">
-                a builder of   possibilities
+                a builder of possibilities
               </p>
             </div>
 
