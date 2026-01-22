@@ -66,7 +66,7 @@ FRONTEND_URL=http://localhost:5173
 
 The project is live and accessible at:
 
-👉 **[https://shubharoydev.onrender.com](https://shubharoydev.onrender.com)**
+👉 **[https://shubharoydev.vercel.app](https://shubharoydev.vercel.app/)**
 
 ---
 
