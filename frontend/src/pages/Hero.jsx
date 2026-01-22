@@ -3,20 +3,32 @@ import Spline from '@splinetool/react-spline'; // Import Spline
 import Aurora from '../bg-style/Aurora';
 
 const Hero = () => {
-  useEffect(() => {
-    const textElements = document.querySelectorAll('.split-text');
-    textElements.forEach((text) => {
-      if (text) {
-        const chars = text.textContent.split('');
-        text.innerHTML = chars
-          .map(
-            (char, i) =>
-              `<span style="display: inline-block; animation: fadeInUp 0.5s ease-out ${i * 0.05}s forwards; opacity: 0;">${char === ' ' ? ' ' : char}</span>`
-          )
-          .join('');
-      }
-    });
-  }, []);
+useEffect(() => {
+  const textElements = document.querySelectorAll('.split-text');
+
+  textElements.forEach((text) => {
+    const words = text.textContent.trim().split(/\s+/);
+
+    text.innerHTML = words
+      .map((word, wordIndex) => {
+        return `
+          <span class="word">
+            ${word
+              .split('')
+              .map(
+                (char, charIndex) =>
+                  `<span class="char" style="animation-delay:${
+                    (wordIndex * 8 + charIndex) * 0.05
+                  }s">${char}</span>`
+              )
+              .join('')}
+          </span>
+        `;
+      })
+      .join(' ');
+  });
+}, []);
+
 
   return (
     <div className="relative min-h-screen bg-black overflow-hidden">
@@ -75,7 +87,7 @@ const Hero = () => {
           </div>
 
           {/* Right side: Spline Component */}
-          <div className="hidden lg:block">
+          <div>
             <div className="relative w-full h-96  rounded-2xl overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Spline scene="https://prod.spline.design/RMQizXKsYPcL-fch/scene.splinecode" />
