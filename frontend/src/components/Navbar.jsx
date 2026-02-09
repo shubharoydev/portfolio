@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo + Name – always in one row */}
           <a
-            href="/"
+            href="#hero"
             title="Shubha Roy"
             className="flex items-center gap-2.5 md:gap-3 flex-shrink-0"
           >
@@ -38,7 +38,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-9 lg:gap-12 ">
-            <a href="/" className="text-white hover:underline">
+            <a href="#hero" className="text-white hover:underline">
               Home
             </a>
             <a href="#aboutme" className="text-white hover:underline">
@@ -46,6 +46,13 @@ const Navbar = () => {
             </a>
             <a href="#mywork" className="text-white hover:underline">
               My Work
+            </a>
+            <a href="https://drive.google.com/file/d/1rZE0jEe96tVVOgMSDmu_dK2Z6OoVYdwU/view"
+             className="text-white hover:underline"
+             target="_blank"
+             rel="noopener noreferrer"
+             >
+             Resume
             </a>
             <a
               href="#footer"

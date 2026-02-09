@@ -27,6 +27,11 @@ import matlabIcon from "../assets/matlab-icon.png";
 const AboutMe = () => {
   const [activeCard, setActiveCard] = useState(null);
 
+  const fadeIn = {
+    hidden: { opacity: 0, y: 80 },
+    visible: { opacity: 2, y: 0, transition: { duration: 0.9 } }
+  };
+
   return (
     <section
       id="aboutme"
@@ -50,14 +55,26 @@ const AboutMe = () => {
 
       <div className="relative z-10 px-4 mx-auto sm:px-6 lg:px-12 max-w-7xl">
         {/* Section Title */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white relative inline-block">
             About Me
             <span className="absolute -bottom-2 left-0 h-1 w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500" />
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
           {/* Image Section */}
           <div className="relative group">
             <div className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-white/10 overflow-hidden transform transition-all duration-500 hover:shadow-glow hover:border-purple-400/30">
@@ -79,16 +96,34 @@ const AboutMe = () => {
             <div className="relative  p-8 rounded-xl shadow-lg backdrop-blur-sm border border-white/10 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-500/10 blur-3xl"></div>
               <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-pink-500/10 blur-3xl"></div>
-              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed relative z-10">
+              <p
+                className="text-lg sm:text-xl text-gray-200 leading-relaxed relative z-10"
+                style={{ fontFamily: "Comic Sans MS, Comic Sans, cursive" }}
+              >
                 <FaRocket className="inline-block text-pink-500 mr-2 mb-1 animate-float" />
-       ɪ'ᴍ ꜱʜᴜʙʜᴀ ʀᴏʏ, ᴀ ᴅᴇᴅɪᴄᴀᴛᴇᴅ ᴀɴᴅ ᴅᴇᴛᴀɪʟ-ᴏʀɪᴇɴᴛᴇᴅ ᴅᴇᴠᴇʟᴏᴘᴇʀ ᴡɪᴛʜ ᴀ ꜱᴛʀᴏɴɢ ᴘᴀꜱꜱɪᴏɴ ꜰᴏʀ ʙᴜɪʟᴅɪɴɢ ɪɴɴᴏᴠᴀᴛɪᴠᴇ ᴀɴᴅ ᴜꜱᴇʀ-ᴄᴇɴᴛʀɪᴄ ꜱᴏʟᴜᴛɪᴏɴꜱ. ᴡɪᴛʜ ᴀ ꜱᴏʟɪᴅ ꜰᴏᴜɴᴅᴀᴛɪᴏɴ ɪɴ ᴍᴏᴅᴇʀɴ ᴡᴇʙ ᴛᴇᴄʜɴᴏʟᴏɢɪᴇꜱ, ɪ ꜱᴘᴇᴄɪᴀʟɪᴢᴇ ɪɴ ᴛʀᴀɴꜱꜰᴏʀᴍɪɴɢ ɪᴅᴇᴀꜱ ɪɴᴛᴏ ʜɪɢʜ-Qᴜᴀʟɪᴛʏ, ᴍᴀɪɴᴛᴀɪɴᴀʙʟᴇ ᴄᴏᴅᴇ ᴀɴᴅ ɪɴᴛᴜɪᴛɪᴠᴇ ᴅᴇꜱɪɢɴꜱ. ᴍʏ ᴊᴏᴜʀɴᴇʏ ɪɴ ᴛᴇᴄʜɴᴏʟᴏɢʏ ɪꜱ ꜰᴜᴇʟᴇᴅ ʙʏ ᴀ ᴅᴇᴇᴘ ᴄᴜʀɪᴏꜱɪᴛʏ ᴀɴᴅ ᴀ ᴄᴏᴍᴍɪᴛᴍᴇɴᴛ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴏᴜꜱ ʟᴇᴀʀɴɪɴɢ, ᴇɴᴀʙʟɪɴɢ ᴍᴇ ᴛᴏ ᴀᴘᴘʀᴏᴀᴄʜ ᴅɪᴠᴇʀꜱᴇ ᴄʜᴀʟʟᴇɴɢᴇꜱ ᴡɪᴛʜ ᴄᴏɴꜰɪᴅᴇɴᴄᴇ, ᴄʀᴇᴀᴛɪᴠɪᴛʏ, ᴀɴᴅ ᴀ ʀᴇꜱᴜʟᴛꜱ-ᴅʀɪᴠᴇɴ ᴍɪɴᴅꜱᴇᴛ.
-            </p>
-            </div> 
+                Hi, I’m Shubha Roy, a dedicated and detail-oriented developer with a strong passion for building innovative, user-centric digital solutions. With a solid foundation in modern web technologies, I specialize in transforming ideas into high-quality, maintainable code and intuitive designs.
+                Driven by curiosity and a commitment to continuous learning, I enjoy tackling diverse technical challenges with creativity, confidence, and a results-driven mindset. I strive to create experiences that are not only functional but also meaningful and engaging for users.
+              </p>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Cards Section */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {[
             {
               title: "Languages Used",
@@ -110,26 +145,26 @@ const AboutMe = () => {
                 // { icon: <SiNextdotjs className="w-5 h-5 text-gray-200 mr-2" />, text: "Next.js" },
                 {icon: <FaNodeJs className="w-5 h-5 text-green-600 mr-2" />, text: "Node.js"},
                 { icon: <SiExpress className="w-5 h-5 text-gray-400 mr-2" />, text: "Express.js" },
-                  { icon: <SiVite className="w-5 h-5 text-purple-400 mr-2" />, text: "Vite" },
+                { icon: <SiVite className="w-5 h-5 text-purple-400 mr-2" />, text: "Vite" },
                 { icon: <SiTailwindcss className="w-5 h-5 text-teal-400 mr-2" />, text: "Tailwind CSS" },
               ],
               accent: "purple-300"
             },
 
             {
-  title: "Tools Used",
-  icon: <FaTools className="w-8 h-8 text-teal-300 mr-3" />,
-  items: [
-    { icon: <FaGitAlt className="w-5 h-5 text-orange-400 mr-2" />, text: "Git" },
-    { icon: <FaGithub className="w-5 h-5 text-gray-200 mr-2" />, text: "GitHub" },
-    { icon: <SiPostman className="w-5 h-5 text-orange-300 mr-2" />, text: "Postman" },
-    { icon: <FaDocker className="w-5 h-5 text-blue-400 mr-2" />, text: "Docker" },
-    { icon: <SiApachekafka className="w-5 h-5 text-red-400 mr-2" />, text: "Apache Kafka" },
-    { icon: <SiGraphql className="w-5 h-5 text-pink-500 mr-2" />, text: "GraphQL" },
-    { icon: <img src={matlabIcon} alt="MATLAB" className="w-5 h-5 mr-2" />, text: "MATLAB" },
-  ],
-  accent: "teal-300"
-},
+              title: "Tools Used",
+              icon: <FaTools className="w-8 h-8 text-teal-300 mr-3" />,
+              items: [
+                { icon: <FaGitAlt className="w-5 h-5 text-orange-400 mr-2" />, text: "Git" },
+                { icon: <FaGithub className="w-5 h-5 text-gray-200 mr-2" />, text: "GitHub" },
+                { icon: <SiPostman className="w-5 h-5 text-orange-300 mr-2" />, text: "Postman" },
+                { icon: <FaDocker className="w-5 h-5 text-blue-400 mr-2" />, text: "Docker" },
+                { icon: <SiApachekafka className="w-5 h-5 text-red-400 mr-2" />, text: "Apache Kafka" },
+                { icon: <SiGraphql className="w-5 h-5 text-pink-500 mr-2" />, text: "GraphQL" },
+                { icon: <img src={matlabIcon} alt="MATLAB" className="w-5 h-5 mr-2" />, text: "MATLAB" },
+              ],
+              accent: "teal-300"
+            },
 
             {
               title: "Databases Used",
@@ -184,8 +219,9 @@ const AboutMe = () => {
               accent: "yellow-300"
             }
           ].map((card, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={fadeIn}
               className="relative bg-transparent p-6 rounded-xl shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-white/10 hover:to-gray-700/10"
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
@@ -246,9 +282,9 @@ const AboutMe = () => {
                   ))}
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Global styles for animations */}

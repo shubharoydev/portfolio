@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import BackgroundBeamsWithCollision from "../bg-style/BackgroundBeamsWithCollison";
+import { motion } from "framer-motion";
 
 // ProjectCard component for individual project cards
 const ProjectCard = ({ project }) => {
@@ -140,25 +141,62 @@ const MyWork = () => {
   const [showAll, setShowAll] = useState(false);
   const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
   return (
     <BackgroundBeamsWithCollision>
       <div
         id="mywork"
         className="py-16 px-4 max-w-7xl mx-auto min-h-screen flex flex-col justify-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-blue-100 tracking-tight">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold text-center mb-12 text-blue-100 tracking-tight"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
           <span className="relative inline-block">
             My Projects
             <span className="absolute -bottom-2 left-0 h-1 w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 animate-pulse" />
           </span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+        >
           {displayedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <motion.div 
+            key={project.id}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         {projects.length > 4 && (
-          <div className="text-center mt-12">
+          <motion.div
+            className="text-center mt-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
             <button
               onClick={() => setShowAll(!showAll)}
               className="relative inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full overflow-hidden group transition-all duration-300 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl"
@@ -168,7 +206,7 @@ const MyWork = () => {
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-500 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </BackgroundBeamsWithCollision>

@@ -31,7 +31,7 @@ useEffect(() => {
 
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div  id="hero" className="relative min-h-screen bg-black overflow-hidden">
       <div className="absolute inset-0">
         <Aurora
           colorStops={['#3A29FF', '#FF94B4', '#FF3232']}
