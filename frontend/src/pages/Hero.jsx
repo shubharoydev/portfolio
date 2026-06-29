@@ -88,7 +88,7 @@ useEffect(() => {
 
           {/* Right side: Spline Component */}
           <div>
-            <div className="relative w-full h-96  rounded-2xl overflow-hidden">
+            <div className="relative w-full h-95 md:h-150 rounded-2xl overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Spline scene="https://prod.spline.design/RMQizXKsYPcL-fch/scene.splinecode" />
               </div>

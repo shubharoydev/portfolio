@@ -17,6 +17,7 @@ import {
   FaDatabase,
   FaNodeJs,
   FaLaptopCode,
+  FaJava,
 } from 'react-icons/fa';
 import { SiGraphql ,SiApachekafka, SiExpress, SiTailwindcss, SiMongodb, SiRedis, SiPostman, SiVite, SiPostgresql, SiMysql, SiNextdotjs } from 'react-icons/si';
 import Particles from '../bg-style/Particles';
@@ -129,11 +130,12 @@ const AboutMe = () => {
               title: "Languages Used",
               icon: <FaCode className="w-8 h-8 text-blue-300 mr-3" />,
               items: [
-                { icon: <FaJs className="w-5 h-5 text-yellow-300 mr-2" />, text: "JavaScript" },
-                { icon: <FaPython className="w-5 h-5 text-blue-400 mr-2" />, text: "Python" },
-                { icon: <FaHtml5 className="w-5 h-5 text-orange-400 mr-2" />, text: "HTML5" },
-                { icon: <FaCss3Alt className="w-5 h-5 text-blue-500 mr-2" />, text: "CSS3" },
-                { icon: <FaCuttlefish className="w-5 h-5 text-blue-600 mr-2" />, text: "C/C++" },
+                { icon: <FaJs className="w-7 h-7 text-yellow-300 mr-2 " />, text: "JavaScript" },
+                { icon: <FaPython className="w-7 h-7 text-blue-400 mr-2" />, text: "Python" },
+                { icon: <FaHtml5 className="w-7 h-7 text-orange-400 mr-2" />, text: "HTML5" },
+                { icon: <FaCss3Alt className="w-7 h-7 text-blue-500 mr-2" />, text: "CSS3" },
+                { icon: <FaCuttlefish className="w-7 h-7 text-blue-600 mr-2" />, text: "C/C++" },
+                { icon: <FaJava className="w-7 h-7 text-red-400 mr-2" />, text: "Java" },
               ],
               accent: "blue-300"
             },
@@ -141,12 +143,12 @@ const AboutMe = () => {
               title: "Frameworks Used",
               icon: <FaReact className="w-8 h-8 text-purple-300 mr-3" />,
               items: [
-                { icon: <FaReact className="w-5 h-5 text-cyan-400 mr-2" />, text: "React" },
+                { icon: <FaReact className="w-7 h-7 text-cyan-400 mr-2" />, text: "React" },
                 // { icon: <SiNextdotjs className="w-5 h-5 text-gray-200 mr-2" />, text: "Next.js" },
-                {icon: <FaNodeJs className="w-5 h-5 text-green-600 mr-2" />, text: "Node.js"},
-                { icon: <SiExpress className="w-5 h-5 text-gray-400 mr-2" />, text: "Express.js" },
-                { icon: <SiVite className="w-5 h-5 text-purple-400 mr-2" />, text: "Vite" },
-                { icon: <SiTailwindcss className="w-5 h-5 text-teal-400 mr-2" />, text: "Tailwind CSS" },
+                {icon: <FaNodeJs className="w-7 h-7 text-green-600 mr-2" />, text: "Node.js"},
+                { icon: <SiExpress className="w-7 h-7 text-gray-400 mr-2" />, text: "Express.js" },
+                { icon: <SiVite className="w-7 h-7 text-purple-400 mr-2" />, text: "Vite" },
+                { icon: <SiTailwindcss className="w-7 h-7 text-teal-400 mr-2" />, text: "Tailwind CSS" },
               ],
               accent: "purple-300"
             },
@@ -155,13 +157,13 @@ const AboutMe = () => {
               title: "Tools Used",
               icon: <FaTools className="w-8 h-8 text-teal-300 mr-3" />,
               items: [
-                { icon: <FaGitAlt className="w-5 h-5 text-orange-400 mr-2" />, text: "Git" },
-                { icon: <FaGithub className="w-5 h-5 text-gray-200 mr-2" />, text: "GitHub" },
-                { icon: <SiPostman className="w-5 h-5 text-orange-300 mr-2" />, text: "Postman" },
-                { icon: <FaDocker className="w-5 h-5 text-blue-400 mr-2" />, text: "Docker" },
-                { icon: <SiApachekafka className="w-5 h-5 text-red-400 mr-2" />, text: "Apache Kafka" },
-                { icon: <SiGraphql className="w-5 h-5 text-pink-500 mr-2" />, text: "GraphQL" },
-                { icon: <img src={matlabIcon} alt="MATLAB" className="w-5 h-5 mr-2" />, text: "MATLAB" },
+                { icon: <FaGitAlt className="w-7 h-7 text-orange-400 mr-2" />, text: "Git" },
+                { icon: <FaGithub className="w-7 h-7 text-gray-200 mr-2" />, text: "GitHub" },
+                { icon: <SiPostman className="w-7 h-7 text-orange-300 mr-2" />, text: "Postman" },
+                { icon: <FaDocker className="w-7 h-7 text-blue-400 mr-2" />, text: "Docker" },
+                { icon: <SiApachekafka className="w-7 h-7 text-red-400 mr-2" />, text: "Apache Kafka" },
+                { icon: <SiGraphql className="w-7 h-7 text-pink-500 mr-2" />, text: "GraphQL" },
+                { icon: <img src={matlabIcon} alt="MATLAB" className="w-7 h-7 mr-2" />, text: "MATLAB" },
               ],
               accent: "teal-300"
             },
@@ -170,10 +172,10 @@ const AboutMe = () => {
               title: "Databases Used",
               icon: <FaDatabase className="w-8 h-8 text-green-300 mr-3" />,
               items: [
-                { icon: <SiMongodb className="w-5 h-5 text-green-400 mr-2" />, text: "MongoDB" },
-                { icon: <SiRedis className="w-5 h-5 text-red-400 mr-2" />, text: "Redis" },
-                { icon: <SiPostgresql className="w-5 h-5 text-blue-500 mr-2" />, text: "Postgresql" },
-                {icon: <SiMysql className="w-5 h-5 text-blue-500 mr-2" />, text: "MySQL"},
+                { icon: <SiMongodb className="w-7 h-7 text-green-400 mr-2" />, text: "MongoDB" },
+                { icon: <SiRedis className="w-7 h-7 text-red-400 mr-2" />, text: "Redis" },
+                { icon: <SiPostgresql className="w-7 h-7 text-blue-500 mr-2" />, text: "Postgresql" },
+                {icon: <SiMysql className="w-7 h-7 text-blue-500 mr-2" />, text: "MySQL"},
               ],
               accent: "green-300"
             },
