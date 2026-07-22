@@ -51,7 +51,7 @@ const Navbar = () => {
               My Work
               </a>
             <a
-              href="https://docs.google.com/document/..."
+              href="https://docs.google.com/document/d/1gQdkV_6vMdyA2yhZsN5ANTvWBYLIsJKLjjaQ-FBBBf4/edit?usp=sharing"
               className="text-white hover:underline"
               target="_blank"
               rel="noopener noreferrer"

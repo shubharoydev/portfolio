@@ -66,7 +66,7 @@ useEffect(() => {
                 Get Started
               </a>
               <a
-                href="https://medilynk.vercel.app/"
+                href="https://chatify-chi-nine.vercel.app/login"
                 className="inline-flex items-center justify-center px-6 py-3 font-sans text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
               >
                 <svg

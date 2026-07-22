@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn, FaGithub, FaInstagram, FaEnvelope, FaHackerrank } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Footer = ({ id }) => {
@@ -118,32 +119,42 @@ const Footer = ({ id }) => {
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-md">
               I’d love to hear from you Mintellectually hear from you! Connect with me on social media or drop a message below.
             </p>
-            <div className="flex gap-4 sm:gap-6 text-xl sm:text-2xl">
+            <div className="flex gap-4 sm:gap-6 text-3xl sm:text-4xl">
               {[
                 {
                   icon: <FaFacebookF />,
                   href: 'https://www.facebook.com/share/12EkogkVvco/',
-                  color: 'hover:text-blue-500',
-                },
-                {
-                  icon: <FaLinkedinIn />,
-                  href: 'https://www.linkedin.com/in/shubha-roy-838085355/',
-                  color: 'hover:text-blue-400',
-                },
-                {
-                  icon: <FaGithub />,
-                  href: 'https://github.com/shubharoydev',
-                  color: 'hover:text-gray-200',
+                  color: 'text-blue-500',
                 },
                 {
                   icon: <FaInstagram />,
                   href: 'https://www.instagram.com/shubha_roy_i?utm_source=qr&igsh=MWx4a2ZsOXBremE1NA==',
-                  color: 'hover:text-pink-400',
+                  color: 'text-pink-400',
+                },
+                {
+                  icon: <FaLinkedinIn />,
+                  href: 'https://www.linkedin.com/in/shubha-roy-838085355/',
+                  color: 'text-blue-400',
+                },
+                {
+                  icon: <FaGithub />,
+                  href: 'https://github.com/shubharoydev',
+                  color: 'text-gray-200',
+                },
+                {
+                  icon: <SiLeetcode />,
+                  href: 'https://leetcode.com/u/SHUBHA_ROY/',
+                  color: 'text-amber-500',
+                },
+                {
+                  icon: <FaHackerrank />,
+                  href: 'https://www.hackerrank.com/profile/royshubha931', 
+                  color: 'text-green-500',
                 },
                 {
                   icon: <FaEnvelope />,
                   href: 'mailto:shubharoy0024@gmail.com',
-                  color: 'hover:text-red-400',
+                  color: 'text-red-400',
                 },
               ].map((social, index) => (
                 <a
