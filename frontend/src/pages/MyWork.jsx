@@ -8,53 +8,55 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="relative bg-gray-800/30 backdrop-blur-lg rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-600/20 hover:border-gradient-to-r hover:from-pink-500 hover:via-purple-500 hover:to-blue-500">
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2 tracking-wide">{project.title}</h3>
-        <p className="text-gray-300 text-sm mb-4 font-light">{project.shortDesc}</p>
-        <div className={`text-gray-400 text-sm mb-4 transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}>
-          {project.longDesc}
+      <div className="flex flex-col md:flex-row">
+        <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent md:bg-gradient-to-r"></div>
         </div>
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors mb-4"
-        >
-          {isExpanded ? "Read Less" : "Read More"}
-        </button>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="text-xs bg-blue-600/30 text-blue-200 px-2 py-1 rounded-full border border-blue-500/20"
+        <div className="p-6 md:p-8 flex-1 flex flex-col justify-center">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-wide">{project.title}</h3>
+          <p className="text-gray-300 text-sm mb-4 font-light">{project.shortDesc}</p>
+          <div className={`text-gray-400 text-sm mb-4 transition-all duration-300 ${isExpanded ? '' : 'line-clamp-3'}`}>
+            {project.longDesc}
+          </div>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors mb-4 self-start"
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="text-xs bg-blue-600/30 text-blue-200 px-2 py-1 rounded-full border border-blue-500/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <a
+              href={project.projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
             >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          <a
-            href={project.projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-          >
-            Live Demo
-          </a>
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-          >
-            GitHub
-          </a>
+              Live Demo
+            </a>
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -88,41 +90,79 @@ const projects = [
   },
   {
     id: 3,
-    title: "AI-Powered Chat Application",
+    title: "AI-Powered Distributed Chat Application",
     image:
       "https://images.unsplash.com/photo-1614680376739-414d95ff43df?auto=format&fit=crop&w=800&q=80",
     shortDesc:
-      "A scalable, real-time chat application with AI-powered messaging, built using Node.js, Kafka, Redis, and Socket.IO.",
+      "A production-ready, distributed real-time chat application powered by AI, Kafka, Redis, MongoDB, and Socket.IO, built for scalability and fault tolerance.",
+
     longDesc:
-      "This project delivers a real-time, AI-enhanced chat experience through a distributed backend architecture built with Node.js, MongoDB, Redis, and Kafka. It supports instant user-to-user communication via Socket.IO, scalable message queuing through Kafka, and persistent storage using MongoDB with Redis caching for optimized performance. AI responses are generated dynamically using the Gemini API for messages prefixed with '/ai'. Designed with fault tolerance and scalability in mind, the system implements retry logic, batch persistence, JWT-based authentication, and detailed error monitoring. The frontend, built with Vite, React, and Tailwind CSS, provides a responsive, modern chat interface that connects seamlessly via Socket.IO client for real-time interaction.",
-    projectLink: "https://ai-chat-app.onrender.com",
+      "A high-performance, distributed real-time chat platform engineered with a Real-Time First + Asynchronous Persistence architecture to deliver instant messaging at scale. Users receive messages immediately through Socket.IO while Redis caches recent conversations for ultra-fast retrieval. Apache Kafka (3-broker cluster with Aiven Cloud support) decouples real-time delivery from database persistence, enabling reliable asynchronous processing with zero message loss guarantees. A dedicated background worker performs intelligent batch writes to MongoDB using idempotent upserts, committing Kafka offsets only after successful persistence for maximum durability. The system features automatic retry mechanisms, backup Redis queues, self-healing cache repair, worker pause/resume flow control, JWT-secured authentication, and comprehensive monitoring. AI-powered conversations are seamlessly integrated through the Gemini API, allowing users to trigger intelligent responses using the '/ai' command. Built with a modern React + Vite + Tailwind CSS frontend and a scalable Node.js backend, the application is optimized for cloud-native deployments, horizontal scaling, and high-throughput distributed environments.",
+
+    projectLink: "https://chatify-chi-nine.vercel.app/",
     githubLink: "https://github.com/shubharoydev/ai-chat-app",
+
     tags: [
       "Node.js",
       "Express",
-      "MongoDB",
-      "Redis",
-      "Kafka",
-      "Zookeeper",
       "Socket.IO",
+      "Apache Kafka",
+      "Redis",
+      "MongoDB",
       "Gemini API",
+      "JWT",
       "Docker",
-      "Vite",
+      "Docker Compose",
+      "Aiven Kafka",
       "React",
-      "Tailwind CSS"
+      "Vite",
+      "Tailwind CSS",
+      "Distributed Systems",
+      "Event-Driven Architecture"
     ],
   },
   {
     id: 4,
-    title: "Modern Portfolio",
+    title: "AI Supply Chain Management System",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    shortDesc: "A sleek personal portfolio website showcasing my work and skills.",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+
+    shortDesc:
+      "An AI-powered supply chain platform featuring real-time shipment tracking, predictive delay analysis, intelligent route optimization, and proactive logistics risk management.",
+
     longDesc:
-      "Built with React, Node.js, and Tailwind CSS, this portfolio highlights my projects and skills with a clean, modern design. It features responsive layouts, smooth animations, and easy navigation for an engaging user experience.",
-    projectLink: "https://shubharoydev.vercel.app",
-    githubLink: "https://github.com/shubharoydev/portfolio",
-    tags: ["React", "Node.js", "Express.js", "Tailwind CSS"],
+      "A comprehensive AI-driven Supply Chain Management platform built with a scalable microservices architecture to optimize logistics operations through real-time monitoring, machine learning, and intelligent automation. The system enables live shipment tracking using Socket.IO, predictive delay analysis powered by a HistGradientBoostingRegressor model served through FastAPI, and dynamic route optimization by combining real-time traffic, weather, and routing data from TomTom, OpenRoute Service, and OpenWeatherMap. Redis-backed multi-layer caching significantly improves performance while MongoDB provides reliable persistence for shipment and operational data. Advanced features such as corridor-based cascade failure prevention, calibrated risk scoring, automated route re-routing, HTML email alerts, and Gemini AI-powered logistics advisory allow supply chain managers to proactively mitigate disruptions before they occur. JWT authentication, Redis-based session management, Zod validation, Helmet security, Arcjet rate limiting, and comprehensive API integrations ensure a secure and resilient backend. The frontend, built with React, Vite, Tailwind CSS, and MapLibre GL, delivers an interactive dashboard with live map visualization, driver monitoring, AI-assisted decision support, and real-time operational insights. Designed as an intelligent logistics platform, the system demonstrates modern distributed application design, AI-assisted decision making, and real-time event-driven architecture suitable for next-generation supply chain management.",
+
+    projectLink: "https://smartsupplychain-two.vercel.app/",
+    githubLink:
+      "https://github.com/shubharoydev/AI_supply_chain_management_system",
+
+    tags: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis",
+      "Socket.IO",
+      "FastAPI",
+      "Python",
+      "Scikit-Learn",
+      "Machine Learning",
+      "Gemini AI",
+      "JWT",
+      "MapLibre GL",
+      "OpenRoute Service",
+      "TomTom API",
+      "OpenWeatherMap API",
+      "Nodemailer",
+      "Arcjet",
+      "Microservices",
+      "AI",
+      "Supply Chain",
+      "Real-Time Systems"
+    ],
   },
   {
     id: 5,
@@ -134,6 +174,18 @@ const projects = [
     projectLink: "https://github.com/shubharoydev/Octave-Docker-Project",
     githubLink: "https://github.com/shubharoydev/Octave-Docker-Project",
     tags: ["Docker", "GNU Octave", "VS Code", "PowerShell"],
+  },
+    {
+    id: 6,
+    title: "Modern Portfolio",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    shortDesc: "A sleek personal portfolio website showcasing my work and skills.",
+    longDesc:
+      "Built with React, Node.js, and Tailwind CSS, this portfolio highlights my projects and skills with a clean, modern design. It features responsive layouts, smooth animations, and easy navigation for an engaging user experience.",
+    projectLink: "https://shubharoydev.vercel.app",
+    githubLink: "https://github.com/shubharoydev/portfolio",
+    tags: ["React", "Node.js", "Express.js", "Tailwind CSS"],
   },
 ];
 
@@ -165,7 +217,7 @@ const MyWork = () => {
           </span>
         </motion.h2>
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -199,12 +251,9 @@ const MyWork = () => {
           >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="relative inline-flex items-center justify-center px-8 py-3 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full overflow-hidden group transition-all duration-300 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl"
+              className="px-6 py-2 text-sm font-medium text-gray-300 border border-gray-600 rounded-lg hover:bg-gray-700 hover:text-white transition-colors duration-200"
             >
-              <span className="relative z-10">
-                {showAll ? "Show Less" : "View More Projects"}
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-blue-500 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+              {showAll ? "Show Less" : "View More Projects"}
             </button>
           </motion.div>
         )}

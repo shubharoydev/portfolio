@@ -19,7 +19,15 @@ import {
   FaLaptopCode,
   FaJava,
 } from 'react-icons/fa';
-import { SiGraphql ,SiApachekafka, SiExpress, SiTailwindcss, SiMongodb, SiRedis, SiPostman, SiVite, SiPostgresql, SiMysql, SiNextdotjs } from 'react-icons/si';
+import { FaBrain } from "react-icons/fa";
+import { SiGraphql ,SiApachekafka, SiExpress, SiTailwindcss, SiMongodb, SiRedis, SiPostman, SiVite, SiPostgresql, SiMysql,
+  SiTypescript,
+  SiNextdotjs,
+  SiFastapi,
+  SiGithubactions,
+  SiN8N,
+  SiGooglecolab,
+  SiScikitlearn,} from 'react-icons/si';
 import Particles from '../bg-style/Particles';
 import { motion } from 'framer-motion';
 import matlabIcon from "../assets/matlab-icon.png";
@@ -111,7 +119,7 @@ const AboutMe = () => {
 
         {/* Cards Section */}
         <motion.div
-          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -130,7 +138,8 @@ const AboutMe = () => {
               title: "Languages Used",
               icon: <FaCode className="w-8 h-8 text-blue-300 mr-3" />,
               items: [
-                { icon: <FaJs className="w-7 h-7 text-yellow-300 mr-2 " />, text: "JavaScript" },
+                { icon: <FaJs className="w-7 h-7 text-yellow-300 mr-2" />, text: "JavaScript" },
+                { icon: <SiTypescript className="w-7 h-7 text-blue-500 mr-2" />, text: "TypeScript" },
                 { icon: <FaPython className="w-7 h-7 text-blue-400 mr-2" />, text: "Python" },
                 { icon: <FaHtml5 className="w-7 h-7 text-orange-400 mr-2" />, text: "HTML5" },
                 { icon: <FaCss3Alt className="w-7 h-7 text-blue-500 mr-2" />, text: "CSS3" },
@@ -144,9 +153,10 @@ const AboutMe = () => {
               icon: <FaReact className="w-8 h-8 text-purple-300 mr-3" />,
               items: [
                 { icon: <FaReact className="w-7 h-7 text-cyan-400 mr-2" />, text: "React" },
-                // { icon: <SiNextdotjs className="w-5 h-5 text-gray-200 mr-2" />, text: "Next.js" },
-                {icon: <FaNodeJs className="w-7 h-7 text-green-600 mr-2" />, text: "Node.js"},
+                { icon: <SiNextdotjs className="w-7 h-7 text-gray-200 mr-2" />, text: "Next.js" },
+                { icon: <FaNodeJs className="w-7 h-7 text-green-600 mr-2" />, text: "Node.js" },
                 { icon: <SiExpress className="w-7 h-7 text-gray-400 mr-2" />, text: "Express.js" },
+                { icon: <SiFastapi className="w-7 h-7 text-green-400 mr-2" />, text: "FastAPI" },
                 { icon: <SiVite className="w-7 h-7 text-purple-400 mr-2" />, text: "Vite" },
                 { icon: <SiTailwindcss className="w-7 h-7 text-teal-400 mr-2" />, text: "Tailwind CSS" },
               ],
@@ -159,15 +169,17 @@ const AboutMe = () => {
               items: [
                 { icon: <FaGitAlt className="w-7 h-7 text-orange-400 mr-2" />, text: "Git" },
                 { icon: <FaGithub className="w-7 h-7 text-gray-200 mr-2" />, text: "GitHub" },
+                { icon: <SiGithubactions className="w-7 h-7 text-blue-400 mr-2" />, text: "GitHub Actions" },
                 { icon: <SiPostman className="w-7 h-7 text-orange-300 mr-2" />, text: "Postman" },
                 { icon: <FaDocker className="w-7 h-7 text-blue-400 mr-2" />, text: "Docker" },
                 { icon: <SiApachekafka className="w-7 h-7 text-red-400 mr-2" />, text: "Apache Kafka" },
                 { icon: <SiGraphql className="w-7 h-7 text-pink-500 mr-2" />, text: "GraphQL" },
+                { icon: <SiN8N className="w-7 h-7 text-orange-500 mr-2" />, text: "n8n" },
+                { icon: <SiGooglecolab className="w-7 h-7 text-yellow-400 mr-2" />, text: "Google Colab" },
                 { icon: <img src={matlabIcon} alt="MATLAB" className="w-7 h-7 mr-2" />, text: "MATLAB" },
               ],
               accent: "teal-300"
             },
-
             {
               title: "Databases Used",
               icon: <FaDatabase className="w-8 h-8 text-green-300 mr-3" />,
@@ -196,7 +208,7 @@ const AboutMe = () => {
               content: (
                 <>
                   <p className="text-gray-200 mb-3">
-                    <span className="text-2xl font-bold text-white">5+</span> projects completed using modern technologies
+                    <span className="text-2xl font-bold text-white">10+</span> projects completed using modern technologies
                   </p>
                   <ul className="text-gray-200 space-y-1">
                     <li className="flex items-center">
@@ -224,25 +236,25 @@ const AboutMe = () => {
             <motion.div
               key={index}
               variants={fadeIn}
-              className="relative bg-transparent p-6 rounded-xl shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-white/10 hover:to-gray-700/10"
+              className="relative bg-transparent p-5 rounded-xl shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-white/10 hover:to-gray-700/10 flex flex-col h-full"
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
               <div className="flex items-center mb-4">
                 {card.icon}
-                <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
               </div>
               {card.items ? (
-                <ul className="text-gray-200 space-y-2 relative z-10">
+                <div className="flex flex-wrap gap-2 relative z-10 flex-1">
                   {card.items.map((item, i) => (
-                    <li key={i} className="flex items-center">
+                    <div key={i} className="flex items-center bg-gray-700/30 px-3 py-1.5 rounded-lg border border-gray-600/30 hover:border-gray-500/50 transition-colors">
                       {item.icon}
-                      {item.text}
-                    </li>
+                      <span className="text-gray-200 text-sm ml-2">{item.text}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               ) : (
-                <div className="relative z-10">
+                <div className="relative z-10 flex-1">
                   {card.content}
                 </div>
               )}
