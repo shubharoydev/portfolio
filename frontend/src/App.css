@@ -4,48 +4,21 @@
     font-family: "Noto Serif", serif;
 }
 
-@import "tailwindcss";
+body {
+  background-color: #03050b;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-
-html {
-    scroll-behavior: smooth;
-  }
-  
-  @media (max-width: 640px) {
-    .fixed-header {
-      padding-top: 60px; /* Adjust for fixed navbar height on mobile */
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .fixed-header {
-      padding-top: 80px; /* Adjust for fixed navbar height on laptop */
-    }
-  }
-
-
-  .split-text {
-    opacity: 1;
-  }
-  
-  .split-text span {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.5s ease forwards;
-  }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+/* Split-text headline reveal (Hero) */
+.split-text span {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);

@@ -9,29 +9,18 @@ const BackgroundBeamsWithCollision = ({ children, className }) => {
   const beams = [
     { initialX: 10, translateX: 10, duration: 7, repeatDelay: 3, delay: 2 },
     { initialX: 600, translateX: 600, duration: 3, repeatDelay: 3, delay: 4 },
-    { initialX: 100, translateX: 100, duration: 7, repeatDelay: 7, className: "h-6" },
     { initialX: 400, translateX: 400, duration: 5, repeatDelay: 14, delay: 4 },
     { initialX: 800, translateX: 800, duration: 11, repeatDelay: 2, className: "h-20" },
     { initialX: 1000, translateX: 1000, duration: 4, repeatDelay: 2, className: "h-12" },
-    { initialX: 1200, translateX: 1200, duration: 6, repeatDelay: 4, delay: 2, className: "h-6" },
     { initialX: 200, translateX: 200, duration: 8, repeatDelay: 5, delay: 1, className: "h-10" },
     { initialX: 700, translateX: 700, duration: 5, repeatDelay: 3, delay: 3, className: "h-8" },
     { initialX: 900, translateX: 900, duration: 9, repeatDelay: 6, delay: 5, className: "h-14" },
     { initialX: 300, translateX: 300, duration: 6, repeatDelay: 4, delay: 2, className: "h-12" },
-  { initialX: 50, translateX: 50, duration: 6, repeatDelay: 5, delay: 3, className: "h-8" },
-  { initialX: 150, translateX: 150, duration: 9, repeatDelay: 4, delay: 1, className: "h-10" },
-  { initialX: 250, translateX: 250, duration: 5, repeatDelay: 6, delay: 4, className: "h-6" },
-  { initialX: 350, translateX: 350, duration: 7, repeatDelay: 3, delay: 2, className: "h-12" },
-  { initialX: 450, translateX: 450, duration: 8, repeatDelay: 5, delay: 5, className: "h-14" },
-  { initialX: 500, translateX: 500, duration: 4, repeatDelay: 7, delay: 3, className: "h-8" },
-  { initialX: 550, translateX: 550, duration: 10, repeatDelay: 2, delay: 1, className: "h-10" },
-  { initialX: 650, translateX: 650, duration: 6, repeatDelay: 4, delay: 4, className: "h-6" },
-  { initialX: 750, translateX: 750, duration: 5, repeatDelay: 6, delay: 2, className: "h-12" },
-  { initialX: 850, translateX: 850, duration: 7, repeatDelay: 3, delay: 5, className: "h-14" },
-  { initialX: 950, translateX: 950, duration: 8, repeatDelay: 5, delay: 3, className: "h-8" },
-  { initialX: 1050, translateX: 1050, duration: 4, repeatDelay: 7, delay: 1, className: "h-10" },
-  { initialX: 1100, translateX: 1100, duration: 9, repeatDelay: 2, delay: 4, className: "h-6" },
-  { initialX: 1150, translateX: 1150, duration: 6, repeatDelay: 4, delay: 2, className: "h-12" }
+    { initialX: 150, translateX: 150, duration: 9, repeatDelay: 4, delay: 1, className: "h-10" },
+    { initialX: 450, translateX: 450, duration: 7, repeatDelay: 3, delay: 2, className: "h-12" },
+    { initialX: 550, translateX: 550, duration: 10, repeatDelay: 2, delay: 1, className: "h-10" },
+    { initialX: 750, translateX: 750, duration: 6, repeatDelay: 4, delay: 4, className: "h-6" },
+    { initialX: 1050, translateX: 1050, duration: 4, repeatDelay: 7, delay: 1, className: "h-10" },
   ];
 
   return (
@@ -64,7 +53,7 @@ const BackgroundBeamsWithCollision = ({ children, className }) => {
   );
 };
 
-const CollisionMechanism = React.forwardRef(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+const CollisionMechanism = ({ parentRef, containerRef, beamOptions = {} }) => {
   const beamRef = useRef(null);
   const [collision, setCollision] = useState({ detected: false, coordinates: null });
   const [beamKey, setBeamKey] = useState(0);
@@ -92,7 +81,7 @@ const CollisionMechanism = React.forwardRef(({ parentRef, containerRef, beamOpti
 
     const animationInterval = setInterval(checkCollision, 50);
     return () => clearInterval(animationInterval);
-  }, [cycleCollisionDetected]);
+  }, [containerRef, parentRef, cycleCollisionDetected]);
 
   useEffect(() => {
     if (collision.detected && collision.coordinates) {
@@ -125,8 +114,7 @@ const CollisionMechanism = React.forwardRef(({ parentRef, containerRef, beamOpti
       </AnimatePresence>
     </>
   );
-});
-CollisionMechanism.displayName = "CollisionMechanism";
+};
 
 const Explosion = ({ ...props }) => {
   const spans = Array.from({ length: 20 }, (_, index) => ({

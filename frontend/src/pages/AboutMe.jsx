@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   FaCode,
   FaTools,
@@ -30,21 +30,20 @@ import { SiGraphql ,SiApachekafka, SiExpress, SiTailwindcss, SiMongodb, SiRedis,
   SiScikitlearn,} from 'react-icons/si';
 import Particles from '../bg-style/Particles';
 import { motion } from 'framer-motion';
+import SectionHeading from '../components/SectionHeading';
 import matlabIcon from "../assets/matlab-icon.png";
 
 
 const AboutMe = () => {
-  const [activeCard, setActiveCard] = useState(null);
-
   const fadeIn = {
     hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 2, y: 0, transition: { duration: 0.9 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.9 } }
   };
 
   return (
     <section
       id="aboutme"
-      className="relative bg-gradient-to-b from-black to-gray-900 py-16 sm:py-24 overflow-hidden"
+      className="relative bg-gradient-to-b from-black to-gray-900 py-20 sm:py-28 overflow-hidden"
     >
       {/* Enhanced Particles Background */}
       <div className="absolute inset-0 z-0">
@@ -64,18 +63,11 @@ const AboutMe = () => {
 
       <div className="relative z-10 px-4 mx-auto sm:px-6 lg:px-12 max-w-7xl">
         {/* Section Title */}
-        <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white relative inline-block">
-            About Me
-            <span className="absolute -bottom-2 left-0 h-1 w-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500" />
-          </h2>
-        </motion.div>
+        <SectionHeading
+          eyebrow="About"
+          title="About Me"
+          subtitle="A full-stack developer who believes great software is equal parts engineering and craft — scalable under the hood, effortless on the surface."
+        />
 
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
@@ -86,29 +78,32 @@ const AboutMe = () => {
         >
           {/* Image Section */}
           <div className="relative group">
-            <div className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl border-4 border-white/10 overflow-hidden transform transition-all duration-500 hover:shadow-glow hover:border-purple-400/30">
-              <img
-                src="https://ik.imagekit.io/un5p4k39x/my%20photo.jpg?updatedAt=1747583727239"
-                alt="Shubha Roy, Fullstack Developer"
-                className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 viaup-hover:opacity-100 transition-opacity duration-500"></div>-transparent to-transparent opacity-80 gro
-              <div className="absolute bottom-6 left-6 text-white">
-                <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">Shubha Roy</p>
-                <p className="text-sm font-light text-gray-300">Fullstack Developer</p>
+            <div className="relative w-full max-w-md mx-auto rounded-2xl border border-white/10 p-1 shadow-2xl">
+              <div className="relative rounded-xl overflow-hidden">
+                <img
+                  src="https://ik.imagekit.io/un5p4k39x/my%20photo.jpg?updatedAt=1747583727239"
+                  alt="Shubha Roy, Fullstack Developer"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-transparent opacity-90 transition-opacity duration-500" />
+                <div className="absolute bottom-5 left-6 text-white">
+                  <p className="text-2xl font-bold">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+                      Shubha Roy
+                    </span>
+                  </p>
+                  <p className="text-sm font-light text-gray-300">Fullstack Developer</p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Description Section */}
           <div className="flex flex-col justify-center">
-            <div className="relative  p-8 rounded-xl shadow-lg backdrop-blur-sm border border-white/10 overflow-hidden">
-              <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-purple-500/10 blur-3xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-pink-500/10 blur-3xl"></div>
-              <p
-                className="text-lg sm:text-xl text-gray-200 leading-relaxed relative z-10"
-                style={{ fontFamily: "Comic Sans MS, Comic Sans, cursive" }}
-              >
+            <div className="relative p-8 rounded-2xl shadow-lg backdrop-blur-sm border border-white/10 overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-purple-500/10 blur-3xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-pink-500/10 blur-3xl"></div>
+              <p className="text-lg sm:text-xl text-gray-200 leading-relaxed relative z-10">
                 <FaRocket className="inline-block text-pink-500 mr-2 mb-1 animate-float" />
                 Hi, I’m Shubha Roy, a dedicated and detail-oriented developer with a strong passion for building innovative, user-centric digital solutions. With a solid foundation in modern web technologies, I specialize in transforming ideas into high-quality, maintainable code and intuitive designs.
                 Driven by curiosity and a commitment to continuous learning, I enjoy tackling diverse technical challenges with creativity, confidence, and a results-driven mindset. I strive to create experiences that are not only functional but also meaningful and engaging for users.
@@ -236,9 +231,7 @@ const AboutMe = () => {
             <motion.div
               key={index}
               variants={fadeIn}
-              className="relative bg-transparent p-5 rounded-xl shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:bg-gradient-to-br hover:from-white/10 hover:to-gray-700/10 flex flex-col h-full"
-              onMouseEnter={() => setActiveCard(index)}
-              onMouseLeave={() => setActiveCard(null)}
+              className="relative bg-white/[0.03] p-6 rounded-2xl shadow-xl backdrop-blur-sm border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.06] hover:border-white/20 flex flex-col h-full"
             >
               <div className="flex items-center mb-4">
                 {card.icon}
@@ -247,7 +240,7 @@ const AboutMe = () => {
               {card.items ? (
                 <div className="flex flex-wrap gap-2 relative z-10 flex-1">
                   {card.items.map((item, i) => (
-                    <div key={i} className="flex items-center bg-gray-700/30 px-3 py-1.5 rounded-lg border border-gray-600/30 hover:border-gray-500/50 transition-colors">
+                    <div key={i} className="flex items-center bg-gray-700/30 px-3 py-1.5 rounded-lg border border-gray-600/30 hover:border-gray-500/50 hover:bg-gray-700/50 transition-colors">
                       {item.icon}
                       <span className="text-gray-200 text-sm ml-2">{item.text}</span>
                     </div>
@@ -258,51 +251,13 @@ const AboutMe = () => {
                   {card.content}
                 </div>
               )}
-              {activeCard === index && (
-                <div className="absolute inset-0 overflow-hidden">
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className={`absolute rounded-full bg-${card.accent}`}
-                      initial={{
-                        opacity: 0,
-                        scale: 0,
-                        x: Math.random() * 100 - 50,
-                        y: Math.random() * 100 - 50,
-                        width: Math.random() * 6 + 2,
-                        height: Math.random() * 6 + 2,
-                      }}
-                      animate={{
-                        opacity: [0, 0.3, 0],
-                        scale: [0, 1, 0],
-                        x: [
-                          Math.random() * 100 - 50,
-                          Math.random() * 100 - 50,
-                          Math.random() * 100 - 50
-                        ],
-                        y: [
-                          Math.random() * 100 - 50,
-                          Math.random() * 100 - 50,
-                          Math.random() * 100 - 50
-                        ],
-                      }}
-                      transition={{
-                        duration: Math.random() * 3 + 2,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: i * 0.2
-                      }}
-                    />
-                  ))}
-                </div>
-              )}
             </motion.div>
           ))}
         </motion.div>
       </div>
 
       {/* Global styles for animations */}
-      <style jsx global>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-5px); }
@@ -310,10 +265,8 @@ const AboutMe = () => {
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
-        .hover\:shadow-glow:hover {
-          box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
-        }
-      `}</style>
+      `}
+      </style>
     </section>
   );
 };

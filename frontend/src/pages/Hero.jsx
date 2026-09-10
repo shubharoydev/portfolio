@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
-import Spline from '@splinetool/react-spline'; // Import Spline
+import Spline from '@splinetool/react-spline';
+import { lazy, Suspense,} from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import Aurora from '../bg-style/Aurora';
 
 const Hero = () => {
@@ -58,19 +60,30 @@ useEffect(() => {
               Crafting innovative web solutions with creativity and precision
             </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+<div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#aboutme"
-                className="inline-flex items-center justify-center px-6 py-3 font-sans text-base font-semibold text-black bg-white rounded-full hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                className="group inline-flex items-center justify-center px-7 py-3 font-sans text-base font-semibold text-black bg-white rounded-full transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.18)] focus:outline-none focus:ring-2 focus:ring-white/80 focus:ring-offset-2 focus:ring-offset-black"
               >
                 Get Started
+                <svg
+                  className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </a>
               <a
                 href="https://chatify-chi-nine.vercel.app/login"
-                className="inline-flex items-center justify-center px-6 py-3 font-sans text-base font-semibold text-white border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                className="group inline-flex items-center justify-center px-7 py-3 font-sans text-base font-semibold text-white border border-white/60 rounded-full transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white/80 focus:ring-offset-2 focus:ring-offset-black"
               >
                 <svg
-                  className="w-5 h-5 mr-2"
+                  className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:translate-x-0.5"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"

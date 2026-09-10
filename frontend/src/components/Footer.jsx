@@ -109,17 +109,18 @@ const Footer = ({ id }) => {
 
       <footer
         id={id}
-        className="bg-[#00050b] text-white px-4 sm:px-6 lg:px-12 py-8 sm:py-12"
+        className="relative bg-[#00050b] text-white px-4 sm:px-6 lg:px-12 py-8 sm:py-12 border-t border-white/10"
         style={{ minHeight: '200px' }}
       >
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent" />
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
           {/* Social Section */}
           <div className="space-y-4 sm:space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Get in Touch</h2>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-md">
-              I’d love to hear from you Mintellectually hear from you! Connect with me on social media or drop a message below.
+              I’d love to hear from you — whether it’s a project idea, a collaboration, or just a hello. Connect with me below and I’ll get back to you soon.
             </p>
-            <div className="flex gap-4 sm:gap-6 text-3xl sm:text-4xl">
+            <div className="flex flex-wrap gap-4 sm:gap-6 text-3xl sm:text-4xl">
               {[
                 {
                   icon: <FaFacebookF />,
@@ -162,7 +163,8 @@ const Footer = ({ id }) => {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={`transform transition-all duration-300 ${social.color} hover:scale-110`}
+                  aria-label={social.href.startsWith('mailto') ? 'Email' : 'Social link'}
+                  className={`transform transition-all duration-300 ${social.color} hover:scale-110 hover:-translate-y-1 drop-shadow-sm hover:drop-shadow-[0_6px_18px_rgba(168,85,247,0.35)]`}
                 >
                   {social.icon}
                 </a>
@@ -171,7 +173,7 @@ const Footer = ({ id }) => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-900/20 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-800/50">
+          <div className="bg-white/[0.03] p-4 sm:p-7 rounded-2xl shadow-lg border border-white/10 backdrop-blur-sm">
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-5">Send a Message</h2>
             <form ref={form} onSubmit={sendEmail} className="space-y-4 sm:space-y-5">
               <input
@@ -179,25 +181,25 @@ const Footer = ({ id }) => {
                 name="user_name"
                 placeholder="Your Name"
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 text-gray-200 border border-gray-700/50 placeholder-gray-500 text-sm sm:text-base"
+                className="w-full px-4 py-3 rounded-xl bg-gray-800/40 text-gray-200 border border-white/10 placeholder-gray-500 text-sm sm:text-base transition-colors focus:outline-none focus:border-purple-400/60 focus:bg-gray-800/60"
               />
               <input
                 type="email"
                 name="user_email"
                 placeholder="Your Email"
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 text-gray-200 border border-gray-700/50 placeholder-gray-500 text-sm sm:text-base"
+                className="w-full px-4 py-3 rounded-xl bg-gray-800/40 text-gray-200 border border-white/10 placeholder-gray-500 text-sm sm:text-base transition-colors focus:outline-none focus:border-purple-400/60 focus:bg-gray-800/60"
               />
               <textarea
                 name="message"
                 placeholder="Your Message"
                 rows="4"
                 required
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-gray-800/50 text-gray-200 border border-gray-700/50 placeholder-gray-500 resize-none text-sm sm:text-base"
+                className="w-full px-4 py-3 rounded-xl bg-gray-800/40 text-gray-200 border border-white/10 placeholder-gray-500 resize-none text-sm sm:text-base transition-colors focus:outline-none focus:border-purple-400/60 focus:bg-gray-800/60"
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-teal-600 text-white font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md text-sm sm:text-base"
+                className="w-full bg-gradient-to-r from-teal-600 to-cyan-700 text-white font-medium px-4 sm:px-6 py-3 rounded-xl shadow-md text-sm sm:text-base transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgba(20,184,166,0.6)] hover:-translate-y-0.5"
               >
                 {sent ? (
                   <span className="flex items-center justify-center">
@@ -225,7 +227,7 @@ const Footer = ({ id }) => {
           </div>
         </div>
 
-        <div className="text-center text-xs sm:text-sm text-gray-400 mt-6 sm:mt-12 pt-4 sm:pt-6 border-t border-gray-800/50">
+        <div className="text-center text-xs sm:text-sm text-gray-400 mt-6 sm:mt-12 pt-4 sm:pt-6 border-t border-white/10">
           © {new Date().getFullYear()} Shubha Roy. All rights reserved.
         </div>
       </footer>
