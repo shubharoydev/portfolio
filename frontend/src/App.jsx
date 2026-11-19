@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import AboutMe from './pages/AboutMe';
 import MyWork from './pages/MyWork';
 import MobileWarningModal from './components/MobileWarningModal';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <MyWork id="mywork" />
       </main>
       <Footer id="footer" />
+      <Analytics />
     </div>
   );
 }

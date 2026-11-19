@@ -17,6 +17,7 @@
     "@splinetool/runtime": "^1.10.44",
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/vite": "^4.1.3",
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.9.4",
